@@ -106,7 +106,7 @@ const Login = () => {
           {/* Forgot password */}
           <div className="">
             <Link
-              href={{ pathname: "/forget-password", query: { email } }}
+              href={'/forgotpass'}
               className="text-pink-500 hover:underline text-sm font-medium"
             >
               Forgot password?

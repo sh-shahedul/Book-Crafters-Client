@@ -73,8 +73,8 @@ const Navbar = () => {
           </ul>
         </div>
 
-        <Link href="/" className="flex items-center gap-1 text-3xl font-bold text-pink-600">
-          <LuRotate3D size={30}/>  Book <span className="text-xl text-black mt-2">Crafters</span>
+        <Link href="/" className="flex items-center gap-1 md:text-3xl text-2xl font-bold text-pink-600">
+          <LuRotate3D size={30}/>  Book <span className="md:text-xl text-lg text-black mt-2">Crafters</span>
         </Link>
       </div>
 
