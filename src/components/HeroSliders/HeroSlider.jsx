@@ -1,10 +1,12 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; 
 import { MdOutlineArrowOutward } from "react-icons/md";
+import { TypeAnimation } from "react-type-animation";
+import Link from "next/link";
 
 const slides = [
   {
@@ -30,6 +32,8 @@ const slides = [
 ];
 
 const HeroSlider = () => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
   return (
     <Carousel
       autoPlay
@@ -37,6 +41,7 @@ const HeroSlider = () => {
       showThumbs={false}
       showStatus={false}
       className="relative"
+      onChange={(index) => setCurrentSlide(index)} // update current slide
     >
       {slides.map((slide, index) => (
         <div key={index} className="relative w-full h-[50vh] md:h-[60vh]">
@@ -50,14 +55,21 @@ const HeroSlider = () => {
           {/* Overlay content */}
           <div className="absolute inset-0 bg-black/40 flex flex-col justify-center items-center md:items-start p-6 md:p-16 text-center md:text-left rounded-xl">
             <h1 className="text-2xl md:text-5xl font-bold text-white mb-4">
-              {slide.title}
+              {currentSlide === index && (
+                <TypeAnimation
+                  key={slide.title}            
+                  sequence={[slide.title, 2000]} 
+                  speed={50}                   
+                  style={{ display: "inline-block" }}
+                />
+              )}
             </h1>
             <p className="text-white text-lg md:text-2xl mb-6 max-w-xl leading-relaxed">
               {slide.description}
             </p>
-            <button className="bg-pink-500 hover:bg-red-500 text-white font-bold py-3 px-6 rounded-full flex items-center gap-2">
+            <Link href={'/allBooks'} className="btn w-35 bg-linear-to-r from-pink-500 to-red-500 hover:from-pink-600 hover:to-red-600 text-white font-bold rounded-full flex items-center gap-2">
               All Books <MdOutlineArrowOutward />
-            </button>
+            </Link>
           </div>
         </div>
       ))}

@@ -131,13 +131,13 @@ const Navbar = () => {
                 </Link>
               </li>
               <li>
-                <Link href="/myModels" className="flex items-center gap-1 font-semibold">
-                  <FaCartPlus /> My Models
+                <Link href="/addBooks" className="flex items-center gap-1 font-semibold">
+                  <FaCartPlus /> Add Books
                 </Link>
               </li>
               <li>
-                <Link href="/myDownloads" className="flex items-center gap-1 font-semibold">
-                  <FaDownload /> My Downloads
+                <Link href="/myBooks" className="flex items-center gap-1 font-semibold">
+                  <FaDownload /> My Books
                 </Link>
               </li>
               <li>
