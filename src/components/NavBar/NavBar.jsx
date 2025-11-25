@@ -11,10 +11,17 @@ import { LuRotate3D } from "react-icons/lu";
 import { ImBoxAdd } from "react-icons/im";
 import { MdMenuBook } from "react-icons/md";
 import { BiSolidContact } from "react-icons/bi";
+import { usePathname } from "next/navigation";
 
 
 const Navbar = () => {
   const { user, signOutUser } = use(AuthContext);
+
+  const pathname = usePathname();
+  const linkClass = (path) =>
+    pathname === path
+      ? "text-pink-600 font-semibold border-2" 
+      : "";
 
   const handelLogOut = () => {
     signOutUser()
@@ -51,22 +58,22 @@ const Navbar = () => {
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
           >
             <li>
-              <Link href="/" className="flex items-center gap-1">
+              <Link href="/" className={`flex items-center gap-1 ${linkClass("/")}`}>
                 <GoHomeFill /> Home
               </Link>
             </li>
             <li>
-              <Link href="/allBooks" className="flex items-center gap-1">
+              <Link href="/allBooks" className={`flex items-center gap-1 ${linkClass("/allBooks")}`}>
                 <MdMenuBook /> All Books
               </Link>
             </li>
             <li>
-              <Link href="/aboutUs" className="flex items-center gap-1">
+              <Link href="/aboutUs" className={`flex items-center gap-1 ${linkClass("/aboutUs")}`}>
                  <FaUsers size={18} /> About Us
               </Link>
             </li>
             <li>
-              <Link href="/contactUs" className="flex items-center gap-1">
+              <Link href="/contactUs" className={`flex items-center gap-1 ${linkClass("/contactUs")}`}>
                 <BiSolidContact size={18} /> Contact Us
               </Link>
             </li>
@@ -82,22 +89,22 @@ const Navbar = () => {
       <div className="navbar-center hidden md:flex">
         <ul className="menu menu-horizontal px-1 gap-10">
           <li>
-            <Link href="/" className="flex items-center gap-1 font-semibold">
+            <Link href="/" className={`flex items-center gap-1 ${linkClass("/")}`}>
               <GoHomeFill size={18} /> Home
             </Link>
           </li>
           <li>
-            <Link  href="/allBooks" className="flex items-center gap-1 font-semibold">
+            <Link  href="/allBooks" className={`flex items-center gap-1 ${linkClass("/allBooks")}`}>
               <MdMenuBook size={18} /> All Books
             </Link>
           </li>
           <li>
-            <Link href="/aboutUs" className="flex items-center gap-1 font-semibold">
+            <Link href="/aboutUs" className={`flex items-center gap-1 ${linkClass("/aboutUs")}`}>
               <FaUsers size={18} /> About Us
             </Link>
           </li>
           <li>
-            <Link href="/contactUs" className="flex items-center gap-1 font-semibold">
+            <Link href="/contactUs" className={`flex items-center gap-1 ${linkClass("/contactUs")}`}>
               <BiSolidContact size={18} /> Contact Us
             </Link>
           </li>
