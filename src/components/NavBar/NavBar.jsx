@@ -20,8 +20,8 @@ const Navbar = () => {
   const pathname = usePathname();
   const linkClass = (path) =>
     pathname === path
-      ? "text-pink-600 font-semibold border-2" 
-      : "";
+      ? "text-pink-600 font-bold " 
+      : "font-bold";
 
   const handelLogOut = () => {
     signOutUser()
