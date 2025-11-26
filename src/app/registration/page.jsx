@@ -157,7 +157,7 @@ const Registration = () => {
                     <p className="text-gray-600">
                         Already have an account?{" "}
                         <Link
-                            href={`/login${redirectTo !== '/' ? `?from=${redirectTo}` : ''}`}
+                             href="/login"
                             className="text-pink-500 font-semibold underline"
                         >
                             Login
