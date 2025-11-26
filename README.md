@@ -75,15 +75,20 @@ This project is a practical application to learn **React, Node.js, Express, Mong
 "dependencies": {
     "axios": "^1.13.2",
     "firebase": "^12.6.0",
+    "framer-motion": "^12.23.24",
+    "lucide-react": "^0.554.0",
     "next": "16.0.3",
     "react": "19.2.0",
     "react-dom": "19.2.0",
     "react-hook-form": "^7.66.1",
+    "react-hot-toast": "^2.6.0",
     "react-icons": "^5.5.0",
-    "react-spinners": "^0.17.0",
-    "react-toastify": "^11.0.5",
-    "sweetalert2": "^11.26.3"
+    "react-responsive-carousel": "^3.2.23",
+    "react-type-animation": "^3.2.0",
+    "sweetalert2": "^11.26.3",
+    "swiper": "^12.0.3"
   },
+  
 ```
  
 
@@ -99,6 +104,7 @@ Create file Book-Crafters
 
 cd Book-Crafters
 
+https://github.com/sh-shahedul/Book-Crafters-Client
 
 
 2. Install Dependencies
@@ -110,4 +116,4 @@ npm i
 npm run dev
 
 
-## ❤️ Thanks for Visiting Coffee Garden!
+## ❤️ Thanks for Visiting  Books Crafters!
