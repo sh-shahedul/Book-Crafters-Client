@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import Link from "next/link";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter} from "next/navigation";
 import useAuth from "@/hooks/useAuth";
 import toast from "react-hot-toast";
 
@@ -22,8 +22,7 @@ const Login = () => {
 
   const { signInUser, googleSignIn } = useAuth();
   const router = useRouter();
-  const searchParams = useSearchParams();
-  const redirectTo = searchParams?.get("redirect") || "/";
+  
   const watchedEmail = watch("email");
 
   useEffect(() => {
@@ -34,7 +33,7 @@ const Login = () => {
     signInUser(data.email, data.password)
       .then(() => {
         toast.success("🎉 Log in Successfull")
-        router.push(redirectTo)
+        router.push('/')
       })
       .catch((error) => console.log(error));
   };
@@ -43,7 +42,7 @@ const Login = () => {
     googleSignIn()
       .then(() => {
          toast.success("🎉 Log in Successfull")
-         router.push(redirectTo)
+         router.push('/')
       })
       .catch((err) => console.log(err));
   };

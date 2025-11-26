@@ -3,12 +3,10 @@
 import Link from "next/link";
 import { use } from "react";
 import { AuthContext } from "@/contexts/AuthContext/AuthContext";
-import { IoLogoModelS } from "react-icons/io";
 import { GoHomeFill } from "react-icons/go";
 import { IoLogIn, IoLogOut } from "react-icons/io5";
 import { FaCartPlus, FaDownload, FaGear, FaUser, FaUsers } from "react-icons/fa6";
 import { LuRotate3D } from "react-icons/lu";
-import { ImBoxAdd } from "react-icons/im";
 import { MdMenuBook } from "react-icons/md";
 import { BiSolidContact } from "react-icons/bi";
 import { usePathname } from "next/navigation";
