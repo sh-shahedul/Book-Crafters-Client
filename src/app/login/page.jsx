@@ -7,6 +7,7 @@ import { FcGoogle } from "react-icons/fc";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import useAuth from "@/hooks/useAuth";
+import toast from "react-hot-toast";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -31,13 +32,19 @@ const Login = () => {
 
   const handleLogin = (data) => {
     signInUser(data.email, data.password)
-      .then(() => router.push(redirectTo))
+      .then(() => {
+        toast.success("🎉 Log in Successfull")
+        router.push(redirectTo)
+      })
       .catch((error) => console.log(error));
   };
 
   const handleGoogle = () => {
     googleSignIn()
-      .then(() => router.push(redirectTo))
+      .then(() => {
+         toast.success("🎉 Log in Successfull")
+         router.push(redirectTo)
+      })
       .catch((err) => console.log(err));
   };
 

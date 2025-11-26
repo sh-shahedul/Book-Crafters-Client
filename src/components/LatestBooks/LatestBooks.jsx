@@ -2,15 +2,27 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { MdOutlineArrowOutward } from "react-icons/md";
+import { FaBangladeshiTakaSign } from "react-icons/fa6";
+import { IoIosContact } from "react-icons/io";
+import { TbCategoryFilled } from "react-icons/tb";
+import { ImPriceTags } from "react-icons/im";
+import Loading from "../Loading/Loading";
 
 export default function LatestBooks() {
   const [books, setBooks] = useState([]);
+  const [loading,setLoading] = useState(true)
 
   useEffect(() => {
-    fetch("http://localhost:5000/latestbooks")
+    fetch("https://book-crafters-server.vercel.app/latestbooks")
       .then(res => res.json())
-      .then(data => setBooks(data))
-      .catch(err => console.error(err));
+      .then(data => {
+        setBooks(data)
+        setLoading(false)
+      })
+      .catch(err => {
+        console.error(err)
+        setLoading(false)
+      });
   }, []);
 
 
@@ -27,6 +39,10 @@ const renderStars = (rating) => {
 
   return stars.join(' ');
 };
+
+   if(loading){
+    return <Loading></Loading>
+   }
   return (
 <div className="p-6 mt-5 ">
   <h2 className="text-3xl font-extrabold mb-4 text-center text-pink-600">Latest Books</h2>
@@ -35,53 +51,37 @@ const renderStars = (rating) => {
   {books.map((book) => (
   <div
     key={book._id || book.bookName}
-    className="group relative bg-linear-to-br from-pink-50 via-white to-pink-100 rounded-3xl shadow-2xl overflow-hidden transform hover:scale-105 transition-all duration-500"
+    className="group  rounded-3xl shadow-2xl overflow-hidden transform hover:scale-105 transition-all duration-500"
   >
     {/* Book Cover */}
-    <div className="relative h-72 w-full overflow-hidden rounded-t-3xl">
+    <div className=" h-72 w-full overflow-hidden rounded-t-3xl">
       <img
         src={book.image}
         alt={book.bookName}
         className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-110"
       />
-      <div className="absolute inset-0 bg-linear-to-t from-black/40 to-transparent"></div>
+    
     </div>
 
     {/* Book Info */}
-    <div className="p-5 relative z-10 text-gray-800 flex flex-col gap-2">
-      <h3 className="text-2xl font-bold mb-1">{book.bookName}</h3>
-      <p className="text-sm mb-1">
-        <span className="font-semibold">Author:</span> {book.author}
+    <div className="p-5  z-10 text-gray-800 flex flex-col gap-2">
+      <h3 className="md:text-2xl text-xl font-bold mb-1 text-pink-600"> {book.bookName}</h3>
+      <p className="font-bold flex items-center gap-1"><IoIosContact />
+      Author : <span className="font-medium text-gray-600"> {book.author}</span>
       </p>
-      <p className="text-sm mb-1">
-        <span className="font-semibold">Category:</span> {book.category}
+     <div className="flex justify-between items-center">
+        <p className="font-bold flex items-center gap-1"><TbCategoryFilled />
+        Category: <span className="font-medium text-gray-600">{book.category}</span>
       </p>
-      <p className="text-sm mb-2">
-        <span className="font-semibold">Publisher:</span> {book.publisher} ({book.yearOfPublishing})
-      </p>
-
-      {/* Tags */}
-      <div className="flex flex-wrap gap-2 mb-2">
-        {book.tags?.map((tag, idx) => (
-          <span
-            key={idx}
-            className="bg-pink-100 text-pink-700 px-2 py-1 rounded-full text-xs font-medium"
-          >
-            {tag}
-          </span>
-        ))}
-      </div>
-
-      <div className="flex justify-between items-center text-sm text-gray-600 mb-1">
-        <span>Pages: {book.totalPages}</span>
-        <span className="font-semibold text-pink-600">৳{book.price}</span>
-      </div>
-
-      {/* Rating at bottom */}
-      <div className="text-yellow-500 font-semibold text-sm">
+       <p className="text-yellow-500 font-bold ">
         {renderStars(book.rating)} ({book.rating})
-      </div>
+      </p>
+    </div>
+      <div className="flex justify-between items-center">
 
+         <p className="font-bold flex items-center gap-1 "><ImPriceTags /> Price :  <span className="font-medium text-pink-600  gap-1 flex items-center"> {book.price} <FaBangladeshiTakaSign /> </span> </p> 
+         <p className="font-bold">Pages: <span className="font-medium text-gray-600">  {book.totalPages}</span></p>
+    </div>
       {/* View More Button */}
       <Link
         href={`/book-details/${book._id || book.bookName}`}

@@ -1,37 +1,43 @@
 "use client";
-
+import ErrorDetails from "@/components/Error/ErrorDetails";
+import Loading from "@/components/Loading/Loading";
+import PrivateRoute from "@/PrivateRoute/PrivateRoute";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 
 const BookDetails = ({ params }) => {
-  const { id } = React.use(params) ; // keep as-is
+  const { id } = React.use(params) ; 
   const [book, setBook] = useState();
+  const [loading ,setLoading] =useState(true)
 
-  console.log(id);
+  // console.log(id);
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/books/${id}`)
+      .get(`https://book-crafters-server.vercel.app/books/${id}`)
       .then((data) => {
         setBook(data.data);
+        setLoading(false)
         console.log(data.data);
       })
-      .catch((err) => console.error(err));
+      .catch((err) => {
+        console.error(err)
+        setLoading(false)
+      });
   }, [id]);
 
-  if (!book) {
-    return (
-      <div className="flex justify-center items-center h-screen">
-        <p className="text-gray-500 text-lg animate-pulse">
-          Loading book details...
-        </p>
-      </div>
-    );
+  if (loading) {
+    return <Loading></Loading>
   }
+
+  // if(!book || !id){
+  //   return <ErrorDetails></ErrorDetails>
+  // }
 
   return (
 
- <div className="bg-linear-to-r from-white/80 via-white/90 to-white/80 shadow-2xl rounded-3xl flex flex-col md:flex-row overflow-hidden backdrop-blur-sm">
+  <PrivateRoute>
+     <div className="bg-linear-to-r from-white/80 via-white/90 to-white/80 shadow-2xl rounded-3xl flex flex-col md:flex-row overflow-hidden backdrop-blur-sm">
   {/* Book Cover */}
   <div className="md:w-1/3 flex justify-center items-start p-10">
     <img
@@ -122,6 +128,7 @@ const BookDetails = ({ params }) => {
   </div>
 </div>
 
+  </PrivateRoute>
   )
 };
 

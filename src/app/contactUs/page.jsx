@@ -1,10 +1,19 @@
 "use client";
 
-import React from "react";
+import Loading from "@/components/Loading/Loading";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn } from "react-icons/fa";
 
 const ContactUs = () => {
+  const [loading,setLoading] = useState(true)
+      useEffect(() => {
+      const timer = setTimeout(() => {
+        setLoading(false);
+      }, 1000);
+  
+      return () => clearTimeout(timer);
+    }, []);
   const { register, handleSubmit, formState: { errors }, reset } = useForm();
 
   const onSubmit = (data) => {
@@ -12,11 +21,11 @@ const ContactUs = () => {
     alert("Thank you for reaching out! We will get back to you soon.");
     reset();
   };
-
+  if(loading) return <Loading></Loading>
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col">
       {/* Hero Section */}
-      <section className="bg-pink-600 text-white py-24 text-center">
+      <section className="bg-pink-600 text-white py-24 text-center rounded-full">
         <h1 className="text-5xl font-bold mb-4">Get in Touch</h1>
         <p className="text-lg md:text-xl max-w-2xl mx-auto">
           We’re always happy to hear from readers, authors, and partners. Reach out with questions, suggestions, or just to say hello.

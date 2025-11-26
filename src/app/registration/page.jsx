@@ -8,6 +8,7 @@ import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
 import axios from 'axios';
 import useAuth from '@/hooks/useAuth';
+import toast from 'react-hot-toast';
 
 const Registration = () => {
     const [showPassword, setShowPassword] = useState(false);
@@ -33,6 +34,7 @@ const Registration = () => {
             const photoURL = imageRes.data.data.url;
 
             await updateUserProfile(data.name, photoURL);
+             toast.success("🎉 Log in Successfull")
             router.push(redirectTo);
         } catch (error) {
             console.log(error);
@@ -42,7 +44,9 @@ const Registration = () => {
     const handleGoogleSignIn = async () => {
         try {
             const res = await googleSignIn();
-            router.push(redirectTo);
+              console.log(res);
+              router.push(redirectTo);
+              toast.success("🎉 Log in Successfull")
         } catch (error) {
             console.log(error);
         }

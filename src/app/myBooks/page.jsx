@@ -5,6 +5,8 @@ import useAuth from "@/hooks/useAuth";
 import Link from "next/link";
 import Swal from "sweetalert2";
 import axios from "axios";
+import PrivateRoute from "@/PrivateRoute/PrivateRoute";
+import Loading from "@/components/Loading/Loading";
 
 const MyAddedBooks = () => {
   const { user } = useAuth();
@@ -16,7 +18,7 @@ const MyAddedBooks = () => {
 
     const fetchBooks = async () => {
       try {
-        const res = await fetch(`http://localhost:5000/books?email=${user.email}`);
+        const res = await fetch(`https://book-crafters-server.vercel.app/books?email=${user.email}`);
         const data = await res.json();
         setBooks(data);
       } catch (err) {
@@ -41,7 +43,7 @@ const MyAddedBooks = () => {
   confirmButtonText: "Yes, delete it!"
 }).then((result) => {
   if (result.isConfirmed) {
-    axios.delete(`http://localhost:5000/books/${id}`)
+    axios.delete(`https://book-crafters-server.vercel.app/books/${id}`)
     .then((res) => {
         console.log(res.data)
       setBooks(books.filter((book) => book._id !== id));
@@ -59,17 +61,17 @@ const MyAddedBooks = () => {
    
   }
 });
-    
 
-    
-    
   };
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <Loading></Loading>
   if (!books.length) return <p className="text-pink-600 md:text-4xl text-2xl text-center mt-20">No books added yet.</p>;
 
   return (
-    <div className="overflow-x-auto">
+   <PrivateRoute>
+    <div>
+    <h1 className=" text-3xl  text-center font-bold my-10 text-pink-600">Manage My Books</h1>
+     <div className="overflow-x-auto">
       <table className="min-w-full border border-gray-200 rounded-lg">
         <thead className="bg-gray-100">
           <tr>
@@ -106,6 +108,8 @@ const MyAddedBooks = () => {
         </tbody>
       </table>
     </div>
+   </div>
+   </PrivateRoute>
   );
 };
 

@@ -1,11 +1,21 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Users, Rocket } from "lucide-react";
 import Head from "next/head";
+import Loading from "@/components/Loading/Loading";
+
 
 const About = () => {
+   const [loading,setLoading] = useState(true)
+    useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 500);
+
+    return () => clearTimeout(timer);
+  }, []);
   const aboutsec = [
     { 
       name: "Shahedul Hoque", 
@@ -23,7 +33,9 @@ const About = () => {
       img: "https://i.pinimg.com/736x/cc/6f/6d/cc6f6dc5566b5e3c10e6385408d0515c.jpg"
     },
   ];
-
+  
+    if(loading) return<Loading></Loading>
+      
   return (
     <>
       <Head>

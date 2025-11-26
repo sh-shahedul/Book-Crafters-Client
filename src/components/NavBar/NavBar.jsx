@@ -12,6 +12,7 @@ import { ImBoxAdd } from "react-icons/im";
 import { MdMenuBook } from "react-icons/md";
 import { BiSolidContact } from "react-icons/bi";
 import { usePathname } from "next/navigation";
+import toast from "react-hot-toast";
 
 
 const Navbar = () => {
@@ -27,7 +28,7 @@ const Navbar = () => {
     signOutUser()
       .then(result => {
         console.log(result);
-        alert("Sign out successful");
+        toast.success(" 🎉 Sign out successful");
       })
       .catch(error => console.log(error));
   };
@@ -118,7 +119,14 @@ const Navbar = () => {
             {/* Avatar Button */}
             <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
               <div className="w-12 border-2 border-gray-300 hover:border-pink-600 rounded-full">
-                <img alt="User Avatar" referrerPolicy="no-referrer" src={user.photoURL || ""} />
+               {user.photoURL && (
+                <img
+                    alt="User Avatar"
+                  referrerPolicy="no-referrer"
+                  src={user.photoURL}
+                  className="rounded-full w-10 h-10"
+                />
+              )}
               </div>
             </div>
 
@@ -133,25 +141,21 @@ const Navbar = () => {
               </div>
 
               <li className="mt-3">
-                <Link href="/profile" className="flex items-center gap-1 font-semibold">
+                <Link href="/profile"  className={`flex items-center gap-1 ${linkClass("/profile")}`}>
                   <FaUser /> Profile
                 </Link>
               </li>
               <li>
-                <Link href="/addBooks" className="flex items-center gap-1 font-semibold">
+                <Link href="/addBooks"  className={`flex items-center gap-1 ${linkClass("/addBooks")}`}>
                   <FaCartPlus /> Add Books
                 </Link>
               </li>
               <li>
-                <Link href="/myBooks" className="flex items-center gap-1 font-semibold">
+                <Link href="/myBooks"  className={`flex items-center gap-1 ${linkClass("/myBooks")}`}>
                   <FaDownload /> My Books
                 </Link>
               </li>
-              <li>
-                <a className="flex items-center gap-1">
-                  <FaGear /> Settings
-                </a>
-              </li>
+             
 
               <li>
                 <button

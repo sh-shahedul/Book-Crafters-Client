@@ -14,18 +14,18 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-6">
         {/* Logo + Navigation */}
         <div>
-          <div className="flex items-center space-x-2 text-white">
+          <Link href={'/'} className="flex items-center space-x-2 text-white">
             <LuRotate3D size={25} />
             <span className="text-xl font-bold text-white">BookCrafters</span>
-          </div>
+          </Link>
           <ul className="space-y-2 mt-4">
             <li>
-              <Link href="/all-books" className="text-white hover:text-blue-200">
+              <Link href="/allBooks" className="text-white hover:text-blue-200">
                 All Books
               </Link>
             </li>
             <li>
-              <Link href="/add-book" className="text-white hover:text-blue-200">
+              <Link href="/addBooks" className="text-white hover:text-blue-200">
                 Add Book
               </Link>
             </li>
@@ -35,7 +35,7 @@ const Footer = () => {
               </Link>
             </li>
             <li>
-              <Link href="/auth/login" className="text-white hover:text-blue-200">
+              <Link href="/login" className="text-white hover:text-blue-200">
                 Login
               </Link>
             </li>
