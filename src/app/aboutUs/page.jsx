@@ -38,9 +38,9 @@ const About = () => {
       
   return (
     <>
-      <Head>
-        <title>About us | Course Land</title>
-      </Head>
+      
+        <title>About us | Book Crafters</title>
+     
 
       <section className="relative overflow-hidden py-20 px-6">
         <motion.div

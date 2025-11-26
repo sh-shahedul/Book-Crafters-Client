@@ -54,6 +54,7 @@ export default function Books() {
  if(loading) return <Loading></Loading>
   return (
     <div className="p-6 mt-5 w-[97%] mx-auto">
+       <title>All Books | Book Crafters</title>
        <h2  className="text-3xl font-extrabold text-center text-pink-600 mb-5">
       📚 Explore All Books at Book Crafters
     </h2>

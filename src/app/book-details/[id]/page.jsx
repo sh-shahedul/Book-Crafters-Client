@@ -37,6 +37,7 @@ const BookDetails = ({ params }) => {
   return (
 
   <PrivateRoute>
+     <title> Book Details | Book Crafters</title>
      <div className="bg-linear-to-r from-white/80 via-white/90 to-white/80 shadow-2xl rounded-3xl flex flex-col md:flex-row overflow-hidden backdrop-blur-sm">
   {/* Book Cover */}
   <div className="md:w-1/3 flex justify-center items-start p-10">

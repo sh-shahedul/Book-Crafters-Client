@@ -49,6 +49,7 @@ const Login = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-white px-4">
+       <title>Log In | Book Crafters</title>
       <div className="w-full max-w-md bg-white shadow-xl rounded-3xl p-10 border border-gray-100">
         
         {/* Title */}

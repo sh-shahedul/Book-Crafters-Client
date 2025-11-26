@@ -11,6 +11,7 @@ export default function Home() {
   return (
    
       <div>
+         <title>Home | Book Crafters</title>
         <HeroSlider></HeroSlider>
         <LatestBooks></LatestBooks>
         <HowItWorks></HowItWorks>

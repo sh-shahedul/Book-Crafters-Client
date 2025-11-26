@@ -9,6 +9,7 @@ const CourseErrorPage = () => {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen px-4 bg-gray-50">
+      
       {/* Icon */}
       <div className="bg-indigo-100 p-10 rounded-full shadow-md mb-6">
         <AlertTriangle className="text-pink-500 w-16 h-16" />

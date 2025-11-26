@@ -64,6 +64,7 @@ const AddBookForm = () => {
 
   return (
  <PrivateRoute>
+   <title>Add Books | Book Crafters</title>
      <div className="max-w-4xl mx-auto p-8 bg-white rounded-2xl shadow-lg mt-10">
   <h2 className="text-3xl font-bold mb-8 text-center text-pink-600">
     Add New Book

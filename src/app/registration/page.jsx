@@ -52,6 +52,7 @@ const Registration = () => {
 
     return (
         <div className='flex justify-center items-center min-h-screen  px-4'>
+             <title> Register | Book Crafters</title>
             <div className="w-full max-w-md bg-white/80 backdrop-blur-xl rounded-3xl shadow-2xl p-8 sm:p-10">
                 {/* Heading */}
                 <div className='text-center mb-6'>

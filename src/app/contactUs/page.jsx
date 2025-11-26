@@ -24,6 +24,7 @@ const ContactUs = () => {
   if(loading) return <Loading></Loading>
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col">
+       <title>Contact us | Book Crafters</title>
       {/* Hero Section */}
       <section className="bg-pink-600 text-white py-24 text-center rounded-full">
         <h1 className="text-5xl font-bold mb-4">Get in Touch</h1>

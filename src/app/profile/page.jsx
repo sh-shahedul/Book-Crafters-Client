@@ -55,8 +55,9 @@ const MyProfile = () => {
 
   return (
    <PrivateRoute>
+     <title>My Profile | Book Crafters </title>
      <div className="min-h-screen flex justify-center items-center mt-5  p-6">
-      <title>My Profile</title>
+    
 
       <div className="max-w-5xl w-full bg-white dark:bg-black rounded-3xl shadow-2xl p-8 flex flex-col md:flex-row gap-10">
 
