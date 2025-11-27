@@ -17,7 +17,7 @@ const Newsletter = () => {
   };
 
   return (
-    <section className="py-20 px-6 bg-linear-to-r  bg-pink-300 rounded-3xl ">
+    <section className="py-20 px-6 bg-linear-to-r  bg-pink-300 md:rounded-full rounded-3xl ">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}

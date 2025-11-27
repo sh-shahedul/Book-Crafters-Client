@@ -26,7 +26,7 @@ const ContactUs = () => {
     <div className="min-h-screen bg-gray-50 flex flex-col">
        <title>Contact us | Book Crafters</title>
       {/* Hero Section */}
-      <section className="bg-pink-600 text-white py-24 text-center rounded-full">
+      <section className="bg-pink-600 text-white py-24 text-center md:rounded-full rounded-3xl p-2">
         <h1 className="text-5xl font-bold mb-4">Get in Touch</h1>
         <p className="text-lg md:text-xl max-w-2xl mx-auto">
           We’re always happy to hear from readers, authors, and partners. Reach out with questions, suggestions, or just to say hello.

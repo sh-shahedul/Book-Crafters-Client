@@ -48,7 +48,7 @@ const About = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
           viewport={{ once: true }}
-          className="text-center max-w-4xl mx-auto relative z-10"
+          className="text-center max-w-4xl mx-auto relative "
         >
           <h2 className="text-2xl md:text-3xl font-extrabold bg-clip-text text-pink-600 mb-6">
             About Book Crafters
