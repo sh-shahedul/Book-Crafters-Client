@@ -44,7 +44,7 @@ const HeroSlider = () => {
       onChange={(index) => setCurrentSlide(index)} // update current slide
     >
       {slides.map((slide, index) => (
-        <div key={index} className="relative w-full h-[50vh] md:h-[60vh]">
+        <div key={index} className="relative w-full h-[450px]">
           <Image
             src={slide.img}
             alt={`Slide ${index + 1}`}

@@ -66,11 +66,11 @@ const MyAddedBooks = () => {
 
   if (loading) return <Loading></Loading>
   if (!books.length) return <p className="text-pink-600 md:text-4xl text-2xl text-center mt-20">No books added yet.</p>;
-
+    <title> My Books | Book Crafters</title>
   return (
    <PrivateRoute>
-     <title> My Books | Book Crafters</title>
     <div>
+     <title> My Books | Book Crafters</title>
     <h1 className=" text-3xl  text-center font-bold my-10 text-pink-600">Manage My Books</h1>
      <div className="overflow-x-auto">
       <table className="min-w-full border border-gray-200 rounded-lg">

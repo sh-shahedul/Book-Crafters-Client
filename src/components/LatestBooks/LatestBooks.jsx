@@ -34,7 +34,7 @@ const renderStars = (rating) => {
   const emptyStars = 5 - fullStars - (halfStar ? 1 : 0);
 
   for (let i = 0; i < fullStars; i++) stars.push('★');
-  if (halfStar) stars.push('☆'); // you can replace with half star icon if you want
+  if (halfStar) stars.push('☆'); 
   for (let i = 0; i < emptyStars; i++) stars.push('☆');
 
   return stars.join(' ');
@@ -97,7 +97,7 @@ const renderStars = (rating) => {
 
   </div>
 
-       <Link href={'/allBooks'} className="flex justify-center items-center mt-20 btn w-35 mx-auto rounded-full bg-linear-to-r from-pink-500 to-red-500 hover:from-pink-600 hover:to-red-600 text-white">Explore More <MdOutlineArrowOutward /> </Link>
+       <Link href={'/allBooks'} className="flex justify-center items-center mt-20 btn  mx-auto rounded-full bg-linear-to-r from-pink-500 to-red-500 hover:from-pink-600 hover:to-red-600 text-white">Explore More <MdOutlineArrowOutward /> </Link>
    
 </div>
 
